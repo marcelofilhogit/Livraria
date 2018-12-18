@@ -122,7 +122,7 @@ namespace Livraria
                     "bairro = '" + dataGridView1.CurrentRow.Cells[7].Value.ToString() + "', " +
                     "numero = '" + dataGridView1.CurrentRow.Cells[8].Value.ToString() + "', " +
                     "cidade = '" + dataGridView1.CurrentRow.Cells[9].Value.ToString() + "', " +
-                    "id_estado = '" + dataGridView1.CurrentRow.Cells[10].Value.ToString() +
+                    "estado = '" + dataGridView1.CurrentRow.Cells[10].Value.ToString() +
                     "' WHERE id = " + dataGridView1.CurrentRow.Cells[0].Value.ToString(), conn);
 
                 //Executando o comando

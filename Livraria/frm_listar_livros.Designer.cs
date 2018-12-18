@@ -33,10 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_listar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btn_editar = new System.Windows.Forms.Button();
-            this.btn_excluir = new System.Windows.Forms.Button();
-            this.frmlistarlivrosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.frmlistarlivrosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +42,10 @@
             this.cobertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paginas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_editar = new System.Windows.Forms.Button();
+            this.btn_excluir = new System.Windows.Forms.Button();
+            this.frmlistarlivrosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.frmlistarlivrosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmlistarlivrosBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmlistarlivrosBindingSource)).BeginInit();
@@ -90,36 +90,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(590, 229);
             this.dataGridView1.TabIndex = 48;
-            // 
-            // btn_editar
-            // 
-            this.btn_editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_editar.Location = new System.Drawing.Point(229, 62);
-            this.btn_editar.Name = "btn_editar";
-            this.btn_editar.Size = new System.Drawing.Size(114, 43);
-            this.btn_editar.TabIndex = 49;
-            this.btn_editar.Text = "Editar";
-            this.btn_editar.UseVisualStyleBackColor = true;
-            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
-            // 
-            // btn_excluir
-            // 
-            this.btn_excluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_excluir.Location = new System.Drawing.Point(410, 62);
-            this.btn_excluir.Name = "btn_excluir";
-            this.btn_excluir.Size = new System.Drawing.Size(114, 43);
-            this.btn_excluir.TabIndex = 50;
-            this.btn_excluir.Text = "Excluir";
-            this.btn_excluir.UseVisualStyleBackColor = true;
-            this.btn_excluir.Click += new System.EventHandler(this.btn_excluir_Click);
-            // 
-            // frmlistarlivrosBindingSource1
-            // 
-            this.frmlistarlivrosBindingSource1.DataSource = typeof(Livraria.frm_listar_livros);
-            // 
-            // frmlistarlivrosBindingSource
-            // 
-            this.frmlistarlivrosBindingSource.DataSource = typeof(Livraria.frm_listar_livros);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // id
             // 
@@ -165,6 +136,36 @@
             // 
             this.marca.HeaderText = "Marca";
             this.marca.Name = "marca";
+            // 
+            // btn_editar
+            // 
+            this.btn_editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_editar.Location = new System.Drawing.Point(229, 62);
+            this.btn_editar.Name = "btn_editar";
+            this.btn_editar.Size = new System.Drawing.Size(114, 43);
+            this.btn_editar.TabIndex = 49;
+            this.btn_editar.Text = "Editar";
+            this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
+            // 
+            // btn_excluir
+            // 
+            this.btn_excluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_excluir.Location = new System.Drawing.Point(410, 62);
+            this.btn_excluir.Name = "btn_excluir";
+            this.btn_excluir.Size = new System.Drawing.Size(114, 43);
+            this.btn_excluir.TabIndex = 50;
+            this.btn_excluir.Text = "Excluir";
+            this.btn_excluir.UseVisualStyleBackColor = true;
+            this.btn_excluir.Click += new System.EventHandler(this.btn_excluir_Click);
+            // 
+            // frmlistarlivrosBindingSource1
+            // 
+            this.frmlistarlivrosBindingSource1.DataSource = typeof(Livraria.frm_listar_livros);
+            // 
+            // frmlistarlivrosBindingSource
+            // 
+            this.frmlistarlivrosBindingSource.DataSource = typeof(Livraria.frm_listar_livros);
             // 
             // frm_listar_livros
             // 

@@ -20,6 +20,34 @@ namespace Livraria
         public frm_cadastrar_usuario()
         {
             InitializeComponent();
+
+            //Conectando ao banco
+            connectionTest();
+
+            try
+            {
+
+                //Definindo o comando para atualização
+                command = new NpgsqlCommand("SELECT * FROM tb_estados;", conn);
+
+                result = command.ExecuteReader();
+
+                while (result.Read())
+                {
+                    string name = (string) result["sigla"].ToString();
+                    cb_estado.Items.Add(name);
+                }
+
+
+                //Fechando a conexao
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro encontrado: " + ex);
+            }
+
+            
         }
 
         private void connectionTest()
@@ -46,6 +74,19 @@ namespace Livraria
 
             try
             {
+
+                string sexo = "";
+
+                if (rb_feminino.Checked)
+                {
+                    sexo = "F";
+                }
+
+                if (rb_masculino.Checked)
+                {
+                    sexo = "M";
+                }
+
                 //Definindo o comando para atualização
                 command = new NpgsqlCommand("INSERT INTO tb_usuarios (" +
                     "cpf," +
@@ -54,21 +95,21 @@ namespace Livraria
                     "data_nascimento," +
                     "email," +
                     "rua," +
-                    "bairro" +
-                    "numero" +
-                    "cidade" +
+                    "bairro," +
+                    "numero," +
+                    "cidade," +
                     "estado) " +
                     "VALUES ('"
                     + txt_cpf.Text + "','" 
                     + txt_nome.Text + "','"
-                    + "M" + "','"
+                    + sexo + "','"
                     + txt_data_nascimento.Text + "','"
                     + txt_email.Text + "','"
                     + txt_rua.Text + "','"
                     + txt_bairro.Text + "','"
-                    + txt_numero.Text + "','"
+                    + Convert.ToInt32(txt_numero.Text) + "','"
                     + txt_cidade.Text + "','"
-                    + cb_estado.Text + "','"
+                    + cb_estado.Text
                     + "');", conn);
 
                 //Executando o comando
@@ -76,8 +117,15 @@ namespace Livraria
                 MessageBox.Show("Usuário cadastrado com sucesso!");
 
                 //Limpando os campos aposa inclusao
-                //txtFName.Text = "";
-                //txtLName.Text = "";
+                txt_cpf.Text = "";
+                txt_nome.Text = "";
+                txt_data_nascimento.Text = "";
+                txt_email.Text = "";
+                txt_rua.Text = "";
+                txt_bairro.Text = "";
+                txt_numero.Text = "";
+                txt_cidade.Text = "";
+                cb_estado.Text = "";
 
                 //Fechando a conexao
                 conn.Close();
